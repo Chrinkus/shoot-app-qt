@@ -1,0 +1,10 @@
+# Vim
+*.swo
+*.swp
+
+# Qt
+*.user
+/build*
+
+# MacOS
+.DS_Store
