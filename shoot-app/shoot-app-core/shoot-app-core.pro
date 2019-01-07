@@ -28,13 +28,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         event.cpp \
     shooter.cpp \
-    databasemanager.cpp
+    databasemanager.cpp \
+    event_dao.cpp
 
 HEADERS += \
         event.h \
         shoot-app-core_global.h \ 
     shooter.h \
-    databasemanager.h
+    databasemanager.h \
+    event_dao.h
 
 unix {
     target.path = /usr/lib

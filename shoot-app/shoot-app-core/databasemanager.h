@@ -3,6 +3,8 @@
 
 #include <QString>
 
+#include "event_dao.h"
+
 class QSqlDatabase;
 
 const QString database_filename = "shoot.db";
@@ -19,6 +21,9 @@ protected:
 
 private:
     QSqlDatabase* m_db;
+
+public:
+    const Event_dao event_dao;
 };
 
 #endif // DATABASEMANAGER_H

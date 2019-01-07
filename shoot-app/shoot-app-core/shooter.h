@@ -3,7 +3,9 @@
 
 #include <QString>
 
-class Shooter
+#include "shoot-app-core_global.h"
+
+class SHOOTAPPCORESHARED_EXPORT Shooter
 {
 public:
     explicit Shooter(QString name);
