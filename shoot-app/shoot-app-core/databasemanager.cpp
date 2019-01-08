@@ -1,6 +1,19 @@
 #include "databasemanager.h"
 
 #include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QDebug>
+
+void DatabaseManager::debug_query(const QSqlQuery& query)
+{
+    if (query.lastError().type() == QSqlError::ErrorType::NoError) {
+        qDebug() << "Query OK: " << query.lastQuery();
+    } else {
+        qWarning() << "Query Error: " << query.lastError().text();
+        qWarning() << "Query Text: " << query.lastQuery();
+    }
+}
 
 DatabaseManager& DatabaseManager::instance()
 {

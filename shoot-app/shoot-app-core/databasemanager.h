@@ -6,12 +6,15 @@
 #include "event_dao.h"
 
 class QSqlDatabase;
+class QSqlQuery;
 
 const QString database_filename = "shoot.db";
 
 class DatabaseManager
 {
 public:
+    static void debug_query(const QSqlQuery& query);
+
     static DatabaseManager& instance();
     ~DatabaseManager();
 
