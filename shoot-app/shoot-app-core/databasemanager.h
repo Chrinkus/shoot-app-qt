@@ -4,6 +4,7 @@
 #include <QString>
 
 #include "event_dao.h"
+#include "shooter_dao.h"
 
 class QSqlDatabase;
 class QSqlQuery;
@@ -27,6 +28,7 @@ private:
 
 public:
     const Event_dao event_dao;
+    const Shooter_dao shooter_dao;
 };
 
 #endif // DATABASEMANAGER_H

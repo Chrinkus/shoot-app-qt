@@ -1,8 +1,7 @@
 #include "shooter.h"
 
-Shooter::Shooter(QString name) :
+Shooter::Shooter(const QString& name) :
     m_id{-1},
-    m_name{std::move(name)}
+    m_name{name}
 {
-
 }

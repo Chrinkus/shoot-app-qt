@@ -29,14 +29,20 @@ SOURCES += \
         event.cpp \
     shooter.cpp \
     databasemanager.cpp \
-    event_dao.cpp
+    event_dao.cpp \
+    shooter_dao.cpp \
+    aggregate_dao.cpp \
+    aggregate.cpp
 
 HEADERS += \
         event.h \
         shoot-app-core_global.h \ 
     shooter.h \
     databasemanager.h \
-    event_dao.h
+    event_dao.h \
+    shooter_dao.h \
+    aggregate_dao.h \
+    aggregate.h
 
 unix {
     target.path = /usr/lib
