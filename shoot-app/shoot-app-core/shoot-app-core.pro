@@ -32,7 +32,9 @@ SOURCES += \
     event_dao.cpp \
     shooter_dao.cpp \
     aggregate_dao.cpp \
-    aggregate.cpp
+    aggregate.cpp \
+    match.cpp \
+    match_dao.cpp
 
 HEADERS += \
         event.h \
@@ -42,7 +44,9 @@ HEADERS += \
     event_dao.h \
     shooter_dao.h \
     aggregate_dao.h \
-    aggregate.h
+    aggregate.h \
+    match.h \
+    match_dao.h
 
 unix {
     target.path = /usr/lib
