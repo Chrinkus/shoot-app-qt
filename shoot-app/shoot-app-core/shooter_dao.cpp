@@ -17,7 +17,8 @@ void Shooter_dao::init() const
         QSqlQuery query{m_db};
         query.exec("CREATE TABLE shooters ("
                    "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                   "name TEXT)");
+                   "first_name TEXT, "
+                   "last_name TEXT)");
         DatabaseManager::debug_query(query);
     }
 }
@@ -25,8 +26,10 @@ void Shooter_dao::init() const
 void Shooter_dao::add_shooter(Shooter& shooter) const
 {
     QSqlQuery query{m_db};
-    query.prepare("INSERT INTO shooters (name) VALUES (:name)");
-    query.bindValue(":name", shooter.name());
+    query.prepare("INSERT INTO shooters (first_name, last_name) "
+                  "VALUES (:first_name, :last_name)");
+    query.bindValue(":first_name", shooter.first());
+    query.bindValue(":last_name", shooter.last());
     query.exec();
     shooter.id(query.lastInsertId().toInt());
     DatabaseManager::debug_query(query);
@@ -35,8 +38,10 @@ void Shooter_dao::add_shooter(Shooter& shooter) const
 void Shooter_dao::update_shooter(const Shooter& shooter) const
 {
     QSqlQuery query{m_db};
-    query.prepare("UPDATE shooters SET name = (:name) WHERE id = (:id)");
-    query.bindValue(":name", shooter.name());
+    query.prepare("UPDATE shooters SET first_name = (:first_name) "
+                  "last_name = (:last_name) WHERE id = (:id)");
+    query.bindValue(":first_name", shooter.first());
+    query.bindValue(":last_name", shooter.last());
     query.bindValue(":id", shooter.id());
     query.exec();
     DatabaseManager::debug_query(query);
@@ -59,7 +64,8 @@ std::vector<std::unique_ptr<Shooter>> Shooter_dao::shooters() const
     while (query.next()) {
         auto shooter = std::make_unique<Shooter>();
         shooter->id(query.value("id").toInt());
-        shooter->name(query.value("name").toString());
+        shooter->first(query.value("first_name").toString());
+        shooter->last(query.value("last_name").toString());
         vp_shooters.push_back(std::move(shooter));
     }
 

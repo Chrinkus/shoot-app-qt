@@ -5,6 +5,8 @@
 
 #include "event_dao.h"
 #include "shooter_dao.h"
+#include "match_dao.h"
+#include "roster_map_dao.h"
 
 class QSqlDatabase;
 class QSqlQuery;
@@ -27,8 +29,10 @@ private:
     QSqlDatabase* m_db;
 
 public:
-    const Event_dao event_dao;
-    const Shooter_dao shooter_dao;
+    const Event_dao m_event_dao;
+    const Shooter_dao m_shooter_dao;
+    const Match_dao m_match_dao;
+    const Roster_map_dao m_roster_map_dao;
 };
 
 #endif // DATABASEMANAGER_H

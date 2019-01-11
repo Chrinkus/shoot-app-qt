@@ -34,7 +34,9 @@ SOURCES += \
     aggregate_dao.cpp \
     aggregate.cpp \
     match.cpp \
-    match_dao.cpp
+    match_dao.cpp \
+    roster_map.cpp \
+    roster_map_dao.cpp
 
 HEADERS += \
         event.h \
@@ -46,7 +48,9 @@ HEADERS += \
     aggregate_dao.h \
     aggregate.h \
     match.h \
-    match_dao.h
+    match_dao.h \
+    roster_map.h \
+    roster_map_dao.h
 
 unix {
     target.path = /usr/lib

@@ -8,17 +8,21 @@
 class SHOOTAPPCORESHARED_EXPORT Shooter
 {
 public:
-    explicit Shooter(const QString& name);
+    explicit Shooter(const QString& first = "", const QString& last = "");
 
     int id() const { return m_id; }
     void id(int id) { m_id = id; }
 
-    QString name() const { return m_name; }
-    void name(const QString& name) { m_name = name; }
+    QString first() const { return m_first_name; }
+    void first(const QString& first_name) { m_first_name = first_name; }
+
+    QString last() const { return m_last_name; }
+    void last(const QString& last_name) { m_last_name = last_name; }
 
 private:
     int m_id;
-    QString m_name;
+    QString m_first_name;
+    QString m_last_name;
 };
 
 #endif // SHOOTER_H

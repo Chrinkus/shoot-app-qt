@@ -23,14 +23,18 @@ DatabaseManager& DatabaseManager::instance()
 
 DatabaseManager::DatabaseManager(const QString& path) :
     m_db{new QSqlDatabase{QSqlDatabase::addDatabase("QSQLITE")}},
-    event_dao{*m_db},
-    shooter_dao{*m_db}
+    m_event_dao{*m_db},
+    m_shooter_dao{*m_db},
+    m_match_dao{*m_db},
+    m_roster_map_dao{*m_db}
 {
     m_db->setDatabaseName(path);
     m_db->open();
 
-    event_dao.init();
-    shooter_dao.init();
+    m_event_dao.init();
+    m_shooter_dao.init();
+    m_match_dao.init();
+    m_roster_map_dao.init();
 }
 
 DatabaseManager::~DatabaseManager()
